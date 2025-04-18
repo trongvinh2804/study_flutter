@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class Operations extends StatefulWidget {
   double? a;
   double? b;
@@ -33,6 +34,7 @@ class _OperationsState extends State<Operations> {
                 duration: Duration(seconds: 1),
               ),
             );
+            Navigator.pop(context);
           },
         ),
       ),

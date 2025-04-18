@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 //import 'package:hello/bloc/count_blog.dart';
 import 'package:hello/cubit/calculator_cubit/option_calculator_bloc.dart';
+import 'package:hello/screens/bottom_navigation_screen.dart';
 //import 'package:hello/bloc/todo_bloc.dart';
-import 'package:hello/screens/caculator.dart';
-import 'package:hello/screens/calculator_bloc.dart';
-import 'package:hello/screens/quan_ly_nhan_su.dart';
+import 'package:hello/screens/calculators/caculator.dart';
+import 'package:hello/screens/calculators/calculator_bloc.dart';
+import 'package:hello/screens/screen_navigation/home.dart';
+import 'package:hello/screens/another_screen/quan_ly_nhan_su.dart';
 //import 'package:hello/screens/counter.dart';
 
 //import 'package:hello/screens/caculator.dart';
@@ -25,7 +27,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         textTheme: TextTheme(bodyMedium: TextStyle()),
       ),
-      home: Caculator(title: 'Calculator'),
+      home: BottomNavigationScreen(title: 'Navigation Bar'),
     );
 
     /*return MaterialApp(

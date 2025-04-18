@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hello/screens/operations.dart';
+import 'package:hello/screens/calculators/operations.dart';
 
 // StatefulWidget sử dụng khi cần thay đổi trạng thái của widget
 // StatefulWidget là một widget có thể thay đổi trạng thái của nó trong quá trình chạy ứng dụng
@@ -39,6 +39,10 @@ class _CaculatorState extends State<Caculator> {
     if (result != null) {
       setState(() {
         _result = result;
+      });
+    } else {
+      setState(() {
+        _result = TextEditingController(text: "0.0");
       });
     }
   }
