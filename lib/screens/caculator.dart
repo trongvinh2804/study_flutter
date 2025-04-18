@@ -17,16 +17,22 @@ class _CaculatorState extends State<Caculator> {
 
   TextEditingController _result = TextEditingController(text: "0.0");
 
+  var operationscren = Operations(a: 0, b: 0, title: "Operator");
+
   void _pushAAndB() async {
-    double a = double.tryParse(_aController.text) ?? 0.0;
-    double b = double.tryParse(_bController.text) ?? 0.0;
+    double a = double.tryParse(_aController.text.trim()) ?? 0.0;
+    double b = double.tryParse(_bController.text.trim()) ?? 0.0;
 
     //print("a: $a, b: $b");
     String title = "Operator";
+    operationscren.a = a;
+    operationscren.b = b;
+    operationscren.title = title;
     final result = await Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => Operations(title: title, a: a, b: b),
+        builder: (context) => operationscren,
+        //builder: (context) => Operations(title: title, a: a, b: b),
       ),
     );
 
@@ -69,6 +75,7 @@ Widget _createHeader(
                 labelText: "a",
                 border: OutlineInputBorder(),
               ),
+              keyboardType: TextInputType.number,
             ),
           ),
 
@@ -80,6 +87,7 @@ Widget _createHeader(
                 labelText: "b",
                 border: OutlineInputBorder(),
               ),
+              keyboardType: TextInputType.number,
             ),
           ),
         ],

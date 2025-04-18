@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 
 class Operations extends StatefulWidget {
-  final double? a;
-  final double? b;
+  double? a;
+  double? b;
 
-  const Operations({
+  Operations({
     super.key,
     required this.title,
     required this.a,
     required this.b,
   });
-  final String title;
+  String title;
 
   @override
   State<Operations> createState() => _OperationsState();
@@ -19,15 +19,28 @@ class Operations extends StatefulWidget {
 class _OperationsState extends State<Operations> {
   @override
   Widget build(BuildContext context) {
-    double $a = widget.a ?? 0.0;
-    double $b = widget.b ?? 0.0;
+    double a = widget.a ?? 0.0;
+    double b = widget.b ?? 0.0;
+
     return Scaffold(
-      appBar: AppBar(title: Text(widget.title)),
+      appBar: AppBar(
+        title: Text(widget.title),
+        leading: BackButton(
+          onPressed: () {
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(
+                content: Text("Bạn chưa chọn phép toán"),
+                duration: Duration(seconds: 1),
+              ),
+            );
+          },
+        ),
+      ),
       body: Column(
         children: [
-          Expanded(flex: 4, child: _createHeader($a, $b)),
+          Expanded(flex: 4, child: _createHeader(a, b)),
           Expanded(flex: 2, child: _createChooseOperationWidgit()),
-          Expanded(flex: 2, child: _createButtonWidgit(context, $a, $b)),
+          Expanded(flex: 2, child: _createButtonWidgit(context, a, b)),
         ],
       ),
     );
